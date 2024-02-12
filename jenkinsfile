@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage ('build') {
+            steps {
+                echo "maven clean install"
+            }
+        }
+        stage ('gitclone'){
+            steps {
+                git credentialsId: 'venkat', url: 'https://github.com/venkatw3g/venkatw3gnewrepo.git'
+            }
+        }
+    }
+}

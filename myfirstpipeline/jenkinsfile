@@ -8,5 +8,10 @@ pipeline {
         sh 'node --version'
       }
     }
+    stage('checkout'){
+      steps {
+checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'venkatgithubID-token', url: 'https://github.com/venkatw3g/venkatw3gnewrepo.git']])
   }
+}
+}
 }
